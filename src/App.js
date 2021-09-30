@@ -7,6 +7,22 @@ var styleItem = {
   width: "0.5rem",
   height: "0.5rem"
 };
+
+var inputStyling = {
+  border: "2px solid #7c3aed",
+  borderRadius: "0.4rem",
+  padding: "0.5rem"
+};
+
+var buttonStyling = {
+  marginTop: "0.6rem",
+  backgroundColor: "#7c3aed",
+  padding: "0.6rem",
+  color: "#FFFFFF",
+  border: "none",
+  borderRadius: "0.3rem"
+};
+
 export default function App() {
   const [billInput, setBillInput] = useState(0);
   const [cashInput, setCashInput] = useState(0);
@@ -72,97 +88,67 @@ export default function App() {
 
   return (
     <div className="App">
-      <h1>Cash Register Manager</h1>
+      <h1 style={{ color: "#7c3aed" }}>Cash Register Manager</h1>
       <p>
         Enter the bill amount and cash given by the customer and know minimum
         number of notes to return:
       </p>
       <h3>Bill amount:</h3>
-      <input onChange={billEventHandler}></input>
+      <input style={inputStyling} onChange={billEventHandler}></input>
       <h3>Cash given:</h3>
-      <input onChange={cashEventHandler}></input>
+      <input style={inputStyling} onChange={cashEventHandler}></input>
       <div>
-        <button onClick={clickEventHandler}>Check</button>
+        <button style={buttonStyling} onClick={clickEventHandler}>
+          Check
+        </button>
       </div>
       <h3>Return Change</h3>
       <div>{displayStatement}</div>
-      <table>
-        <tbody>
-          <tr>
-            <tc
-              style={{
-                border: "1px solid blue",
-                padding: "0.3rem",
-                width: "0.5rem",
-                height: "0.5rem"
-              }}
-            >
-              <td>No. of notes</td>
-            </tc>
-            <tc
-              style={{
-                border: "1px solid blue",
-                padding: "0.3rem",
-                width: "0.5rem",
-                height: "0.5rem"
-              }}
-            >
-              <td>{twoThousand}</td>
-            </tc>
-            <tc
-              style={{
-                border: "1px solid blue",
-                padding: "0.3rem",
-                width: "0.5rem",
-                height: "0.5rem"
-              }}
-            >
-              <td>{fiveHundred}</td>
-            </tc>
-            <tc style={styleItem}>
-              <td>{hundred}</td>
-            </tc>
-            <tc style={styleItem}>
-              <td>{twenty}</td>
-            </tc>
-            <tc style={styleItem}>
-              <td>{ten}</td>
-            </tc>
-            <tc style={styleItem}>
-              <td>{five}</td>
-            </tc>
-            <tc style={styleItem}>
-              <td>{one}</td>
-            </tc>
-          </tr>
-          <tr>
-            <tc style={styleItem}>
-              <td>Note</td>
-            </tc>
-            <tc style={styleItem}>
-              <td>2000</td>
-            </tc>
-            <tc style={styleItem}>
-              <td>500</td>
-            </tc>
-            <tc style={styleItem}>
-              <td>100</td>
-            </tc>
-            <tc style={styleItem}>
-              <td>20</td>
-            </tc>
-            <tc style={styleItem}>
-              <td>10</td>
-            </tc>
-            <tc style={styleItem}>
-              <td>5</td>
-            </tc>
-            <tc style={styleItem}>
-              <td>1</td>
-            </tc>
-          </tr>
-        </tbody>
-      </table>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          flexDirection: "column",
+          marginLeft: "15rem",
+          marginRight: "15rem"
+        }}
+      >
+        <div style={{ flex: "1", display: "flex" }}>
+          <div
+            style={{
+              flex: "1",
+              border: "1px solid #7c3aed",
+              width: "1.5rem",
+              height: "2.5rem"
+            }}
+          >
+            No. of notes
+          </div>
+          <div style={{ flex: "1", border: "1px solid #7c3aed" }}>
+            {twoThousand}
+          </div>
+          <div style={{ flex: "1", border: "1px solid #7c3aed" }}>
+            {fiveHundred}
+          </div>
+          <div style={{ flex: "1", border: "1px solid #7c3aed" }}>
+            {hundred}
+          </div>
+          <div style={{ flex: "1", border: "1px solid #7c3aed" }}>{twenty}</div>
+          <div style={{ flex: "1", border: "1px solid #7c3aed" }}>{ten}</div>
+          <div style={{ flex: "1", border: "1px solid #7c3aed" }}>{five}</div>
+          <div style={{ flex: "1", border: "1px solid #7c3aed" }}>{one}</div>
+        </div>
+        <div style={{ flex: "1", display: "flex" }}>
+          <div style={{ flex: "1", border: "1px solid #7c3aed" }}>Note</div>
+          <div style={{ flex: "1", border: "1px solid #7c3aed" }}>2000</div>
+          <div style={{ flex: "1", border: "1px solid #7c3aed" }}>500</div>
+          <div style={{ flex: "1", border: "1px solid #7c3aed" }}>100</div>
+          <div style={{ flex: "1", border: "1px solid #7c3aed" }}>20</div>
+          <div style={{ flex: "1", border: "1px solid #7c3aed" }}>10</div>
+          <div style={{ flex: "1", border: "1px solid #7c3aed" }}>5</div>
+          <div style={{ flex: "1", border: "1px solid #7c3aed" }}>1</div>
+        </div>
+      </div>
     </div>
   );
 }
